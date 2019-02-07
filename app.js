@@ -1,8 +1,10 @@
-var express = require('express');
-var app = express();
-var http = require('http').Server(app);
+const express = require('express');
+const app = express();
+const http = require('http').Server(app);
 const io = require('socket.io')(http);
 const PORT = process.env.PORT || 7000;
+const helmet = require('helmet')
+app.use(helmet())
 
 app.get('/' , function(req, res){
     res.sendFile(__dirname+'/index.html');
