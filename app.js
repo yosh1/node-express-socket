@@ -9,12 +9,12 @@ app.get('/' , function(req, res){
 });
 
 io.on('connection',function(socket){
-    socket.on('message',function(msg){
-        console.log('message: ' + msg);
-        io.emit('message', msg);
+    socket.on('messages',function(msg){
+        console.log('messages: ' + msg);
+        io.emit('messages', msg);
     });
 });
 
 http.listen(PORT, function(){
-    console.log('server listening. Port:' + PORT);
+    console.log('Port:' + PORT);
 });
