@@ -12,8 +12,8 @@
   ul li,
   ol li {
       color: black;
-      border-left: solid 8px orange;
-      background: whitesmoke;
+      border-left: solid 8px skyblue;
+      background-color: aliceblue;
       margin: 10px;
       list-style-type: none!important;
       padding: 10px 5px;
@@ -33,7 +33,7 @@
   }
 
   #contents {
-      height: 83vh;
+      height: 70vh;
       overflow: auto;
   }
 
@@ -46,14 +46,12 @@
 
   #input_msg {
       width: calc(100% - 75px);
-      /*常に送信ボタンの横幅を引いたサイズに動的に計算*/
       line-height: 16px;
       height: 48px;
       padding: 6px;
       border: 1px solid #ccc;
       border-radius: 4px;
       text-align: left;
-      /*文字を左寄せ*/
       box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.2) inset;
       box-sizing: border-box;
 
@@ -69,25 +67,20 @@
       font-weight: bold;
       background: #bcbcbc;
       text-align: center;
-      /*文字をボタン中央に表示*/
       border: 1px solid #bbb;
       border-radius: 4px;
-      /*角丸*/
       box-sizing: border-box;
-      /*paddingとborderの要素の高さと幅の影響をなくす（要素に高さと幅を含める）*/
   }
 
   #input_btn:hover {
       background: #13178E;
-      /*マウスポインタを当てた時にアクティブな色になる*/
       cursor: pointer;
-      /*マウスポインタを当てた時に、カーソルが指の形になる*/
   }
 
   header {
-      height: 5vh;
+      height: 20vh;
   }
 
   footer {
-      height: 3vh;
+      height: 10vh;
   }
