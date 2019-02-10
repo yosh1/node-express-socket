@@ -1,0 +1,93 @@
+  html,
+  body {
+      height: 100vh;
+  }
+
+  ul,
+  ol {
+      padding: 0;
+      position: relative;
+  }
+
+  ul li,
+  ol li {
+      color: black;
+      border-left: solid 8px orange;
+      background: whitesmoke;
+      margin: 10px;
+      list-style-type: none!important;
+      padding: 10px 5px;
+  }
+
+  header {
+      font-size: 1.5em;
+      margin-bottom: 1vh;
+      background-color: orange;
+      color: white;
+
+  }
+
+  header h1 {
+      padding: 5px 0;
+
+  }
+
+  #contents {
+      height: 83vh;
+      overflow: auto;
+  }
+
+  #messages_form {
+      border-right: 1px solid #ddd;
+      border-left: 1px solid #ddd;
+      padding: 4px;
+      height: 8vh;
+  }
+
+  #input_msg {
+      width: calc(100% - 75px);
+      /*常に送信ボタンの横幅を引いたサイズに動的に計算*/
+      line-height: 16px;
+      height: 48px;
+      padding: 6px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      text-align: left;
+      /*文字を左寄せ*/
+      box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.2) inset;
+      box-sizing: border-box;
+
+  }
+
+  #input_btn {
+      width: 72px;
+      height: 48px;
+      font-size: 16px;
+      line-height: 3em;
+      float: right;
+      color: #fff;
+      font-weight: bold;
+      background: #bcbcbc;
+      text-align: center;
+      /*文字をボタン中央に表示*/
+      border: 1px solid #bbb;
+      border-radius: 4px;
+      /*角丸*/
+      box-sizing: border-box;
+      /*paddingとborderの要素の高さと幅の影響をなくす（要素に高さと幅を含める）*/
+  }
+
+  #input_btn:hover {
+      background: #13178E;
+      /*マウスポインタを当てた時にアクティブな色になる*/
+      cursor: pointer;
+      /*マウスポインタを当てた時に、カーソルが指の形になる*/
+  }
+
+  header {
+      height: 5vh;
+  }
+
+  footer {
+      height: 3vh;
+  }

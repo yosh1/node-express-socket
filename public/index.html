@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<meta charset="UTF-8">
+
+<head>
+    <title>node.js / express / socket.io</title>
+    <link rel="stylesheet" href="https://kakudo415.github.io/null.css/2.3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.1.2/css/bulma.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./style.css" />
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <header align="center">
+        <h1>socket.io chat</h1>
+    </header>
+    <div id="contents">
+        <ul id="messages"></ul>
+    </div>
+    <!-- <form id="messages_form" action="#">
+      <input id="input_msg" autocomplete="off" /><button>Send</button>
+    </form> -->
+    <form id="messages_form" action="">
+        <input id="input_msg" autocomplete="off" placeholder="100文字以内でメッセージを入力してください">
+        <button id="input_btn">Send</button>
+    </form>
+    <script>
+        var socketio = io();
+
+        $(function() {
+            $('#messages_form').submit(function() {
+                if ($('#input_msg').val() == "") {
+                    alert('本文を入力してください。');
+                } else {
+                    socketio.emit('messages', $('#input_msg').val());
+                    $('#input_msg').val('');
+                }
+                return false;
+            });
+            socketio.on('messages', function(msg) {
+                var nowDate = new Date(),
+                    year = nowDate.getFullYear(),
+                    month = ("0" + (nowDate.getMonth() + 1)).slice(-2),
+                    day = ("0" + nowDate.getDate()).slice(-2),
+                    hour = ("0" + nowDate.getHours()).slice(-2),
+                    minute = ("0" + nowDate.getMinutes()).slice(-2),
+                    second = ("0" + nowDate.getSeconds()).slice(-2),
+                    nowInfo = year + "/" + month + "/" + day + " " + hour + ":" + minute + ":" + second;
+                $('#messages').append($('<li>').text(msg + " - " + nowInfo));
+
+            });
+        });
+    </script>
+    <footer align="center">
+        Copyright (C) 2019 yoshi1125hisa. All right reserved.
+    </footer>
+</body>
+
+</html>

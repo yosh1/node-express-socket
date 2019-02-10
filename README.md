@@ -12,6 +12,13 @@ $ node app
 ### Docker
 
 ```
-$ docker build -t chat-app .
-$ docker run -p 7000:7000 -it chat-app
+$ docker build -t chat .
+$ docker run -it -p 3000:3000 chat
+```
+
+or
+
+```
+$ docker build -t chat .
+$ docker run -it -p 3000:3000 chat ash
 ```
