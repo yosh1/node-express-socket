@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const open = require("open");
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
 const PORT = process.env.PORT || 3000;
@@ -22,4 +23,5 @@ io.on('connection', function (socket) {
 
 http.listen(PORT, function () {
     console.log('Port:' + PORT);
+    open("http://localhost:" + PORT);
 });
