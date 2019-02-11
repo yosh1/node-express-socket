@@ -17,4 +17,4 @@ RUN npm install
 
 EXPOSE 7000
 
-CMD [ "node","app"]
+CMD [ "npm","start"]

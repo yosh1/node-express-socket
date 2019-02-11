@@ -2,13 +2,28 @@
 <html lang="ja">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>node.js / express / socket.io</title>
+    <meta charset="utf-8">
+    <link rel="icon" type="image/png" href="img/yoshi_favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>とくめいチャット</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="とくめいチャット" />
+    <meta name="keywords" content="とくめいチャット" />
+    <meta name="author" content="@yoshi1125hisa" />
+    <meta property="og:url" content="https://github.com/yoshi1125hisa/node-express-socket">
+    <meta property="og:title" content="とくめいチャット">
+    <meta property="og:description" content="誰でも楽しめるとくめいチャット">
+    <meta property="og:image" content="https://yoshi1125hisa.github.io/img/photo6.png">
+    <meta property="og:site_name" content="とくめいチャット" />
+    <meta name="twitter:site" content="@yoshi1125hisa">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="とくめいチャット">
+    <meta name="twitter:description" content="とくめいチャット">
+    <meta name="twitter:url" content="https://github.com/yoshi1125hisa/node-express-socket">
+    <link rel="shortcut icon" href="img/yoshi_favicon.ico">
     <link rel="stylesheet" href="https://kakudo415.github.io/null.css/2.3.css">
+    <link rel="stylesheet" href="./style/style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.1.2/css/bulma.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
-    <link rel="stylesheet" href="./style.css" />
     <script src="/socket.io/socket.io.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
@@ -27,41 +42,13 @@
     <div id="contents">
         <ul id="messages"></ul>
     </div>
-    <script>
-        var socketio = io();
-
-        $(function() {
-            $('#messages_form').submit(function() {
-                if ($('#input_msg').val() == "") {
-                    alert('本文を入力してください。');
-                } else {
-                    socketio.emit('messages', $('#input_msg').val());
-                    $('#input_msg').val('');
-                }
-                return false;
-            });
-
-            socketio.on('messages', function(msg) {
-                var nowDate = new Date(),
-                    year = nowDate.getFullYear(),
-                    month = ("0" + (nowDate.getMonth() + 1)).slice(-2),
-                    day = ("0" + nowDate.getDate()).slice(-2),
-                    hour = ("0" + nowDate.getHours()).slice(-2),
-                    minute = ("0" + nowDate.getMinutes()).slice(-2),
-                    second = ("0" + nowDate.getSeconds()).slice(-2),
-                    nowInfo = year + "/" + month + "/" + day + " " + hour + ":" + minute + ":" + second;
-                $('#messages').append($('<li>').text(msg + " - " + nowInfo));
-
-            });
-        });
-
-    </script>
     <footer align="center">
         <form id="messages_form" action="">
             <input id="input_msg" autocomplete="off" placeholder="50文字以内でメッセージを入力してください">
-            <button id="input_btn">おくる！</button>
+            <button id="button is-link is-outlined is-rounded is-focused input_btn ">おくる！</button>
         </form>
     </footer>
+    <script src="./js/main.js"></script>
 </body>
 
 </html>
